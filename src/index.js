@@ -4,7 +4,7 @@ import { BuildEvent } from "./build_event.js";
 import { handleEvent } from "./poster.js";
 import { verifyRequest } from "./verifier.js";
 
-const configVars = ["application_secret", "discord_webhook", "listen_port"];
+const configVars = ["application_secret", "discord_webhook", "port"];
 config();
 
 for (const envVar of configVars) {
@@ -37,7 +37,7 @@ app.post("/*", jsonMiddleware, async (req, res) => {
 
 async function main() {
     await new Promise((resolve) => {
-        app.listen(process.env.PORT, "127.0.0.1", resolve);
+        app.listen(process.env.PORT, "0.0.0.0", resolve);
     });
 
     console.log(`Listening for POST requests on port ${process.env.PORT}`);
