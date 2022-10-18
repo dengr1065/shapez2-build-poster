@@ -37,10 +37,10 @@ app.post("/*", jsonMiddleware, async (req, res) => {
 
 async function main() {
     await new Promise((resolve) => {
-        app.listen(process.env.LISTEN_PORT, "127.0.0.1", resolve);
+        app.listen(process.env.PORT, "127.0.0.1", resolve);
     });
 
-    console.log(`Listening for POST requests on port ${process.env.LISTEN_PORT}`);
+    console.log(`Listening for POST requests on port ${process.env.PORT}`);
 }
 
 if (!process.exitCode) {
