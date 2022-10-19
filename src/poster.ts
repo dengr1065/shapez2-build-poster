@@ -40,7 +40,7 @@ export function handleEvent(event: BuildEvent) {
         title: "New build available!",
         timestamp: new Date().toISOString(),
         color: 0x32e040,
-        fields: [{ name: "Platform", value: event.platform }]
+        fields: [{ name: "Platform", value: event.platformName }]
     };
 
     return postWebhook(info, downloadURL);
